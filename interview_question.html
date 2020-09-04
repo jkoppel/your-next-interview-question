@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <title>Your next interview question!</title>
+
+    <style>
+        h1.ui.enormous {
+          font-size: 3em;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h1.ui.header.continued {
+            margin-bottom: -0.3em;
+        }
+    </style>
+</head>
+<body>
+<p></p>
+<div class="ui center aligned container">
+    <div class="ui top attached inverted blue segment">
+        <h1 class="ui center aligned header">Your Next Interview Question</h1>
+    </div>
+    <div class="ui raised segment attached">
+        <h1 id="line1" class="ui large header"></h1>
+        <h1 id="line2" class="ui enormous header continued"></h1>
+        <h1 id="line3" class="ui enormous header"></h1>
+        <h1 id="line4" class="ui large header"></h1>
+        <h1 id="line5" class="ui enormous header continued"></h1>
+        <h1 id="line6" class="ui enormous header"></h1>
+
+        <div id="addendum" class="hidden">
+            <div class="ui clearing divider"></div>
+            <h1 id="line7" class="ui large header"></h1>
+            <h1 id="line8" class="ui enormous header"></h1>
+        </div>
+    </div>
+    <div class="ui bottom attached inverted black segment">
+        &nbsp;
+    </div>
+    <button class="ui primary button" onclick="location.reload()">
+        Give me another
+    </button>
+</div>
+
+<div class="ui segment right aligned">
+    <h6 class="ui grey header">
+        Inspired by <a href="https://www.theproofistrivial.com/">The Proof is Trivial</a>,
+        in turn inspired by <a href="http://itsthisforthat.com/">It's This for That</a>
+    </h6>
+    <h6 class="ui grey header">
+        Hosted on Github
+    </h6>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+
+/************************************************
+ ************* Text corpus **********************
+ ************************************************/
+
+var intros = [
+    "Okay, so what I'd like you to do is",
+    "Call yourself a programmer? Then you can",
+    "To prove you can do this job, you must"
+];
+
+var computationVerbs = [
+  "create an implementation of",
+  //"compute the minimum of",
+  "find all permutations of",
+  "find all pairs of",
+  "design",
+  //"create a test plan for",
+  "draw a UML diagram of",
+  "tell me about a time when you made",
+  "stress-test",
+  "create an abstraction boundary for",
+  "train",
+  "prove the correctness of",
+  "reverse engineer",
+  "give a talk about",
+  "construct a side channel attack on"
+];
+
+var objects = [
+  "an xor-linked list",
+  "an unbounded ring-buffer queue",
+  "the first 5 prime numbers",
+  "a van Emde Boas tree",
+  //"a de Bruijn sequence generator",
+  "a stateless REST server",
+  "a load-balacing frontend",
+  "a NoSQL database engine",
+  "a treap",
+  //"a gap buffer",
+  //"a Fibonacci heap",
+  "a finger tree",
+  "a way for Alice to send a message to Bob",
+  "a just-in-time compiler",
+  "a real-time kernel",
+  "a rendering pipeline",
+  //"an undirected sparse graph",
+  "a one-hot encoded neural network"
+];
+
+var properties = [
+  "the sum",
+  "the number of cycles",
+  "the set of all-pairs shortest paths",
+  "the distance between elements",
+  "the set of Hamiltonian tours",
+  "the chromatic number",
+  "the maximal clique",
+  //"the set of uploaded photos",
+  "the integrity of communications",
+  //"the LLVM bitcode",
+  "the set of hot function invocations",
+  "the number of clipped rectangles",
+  "the consumed bandwidth",
+  "the number of RPCs",
+];
+
+var predicates = [
+  "can be computed in poly-logarithmic space",
+  "is less than 27",
+  "has a millisecond response time",
+  "is human- and machine-readable",
+  "has seven-sigma uptime",
+  "has snapshot-isolation semantics",
+  "is representable in constant space",
+  "is unreachable",
+  "runs on Windows",
+  "is impervious to third-party tampering",
+  "fits on a 256k thermostat",
+  "maintains causal consistency",
+  "is undecidable",
+  "is a witness to Rice's theorem",
+  "is cache-oblivious"
+];
+
+var techniques = [
+  "TI-83 BASIC",
+  "Fortran-77",
+  "only subtraction operations",
+  "COBOL on Cogs",
+  "only straight-line code",
+  "using only goto's for control-flow",
+  "a finite state machine",
+  "category theory",
+  "partially-observable Markov decision processes",
+  "only x86 intrinsics"
+];
+
+var features = [
+  "provide lossless compression",
+  "file your taxes",
+  "reverse a linked list",
+  "promote community wellnesss",
+  "persist across reboots",
+  "work on Internet Explorer"
+];
+
+var partTwos = [
+    "make it O(log log n) complexity",
+    "put it on the blockchain",
+    "rewrite it in 8086 machine language",
+    "add Unicode support",
+    "use microservices"
+];
+
+var gradingPrompts = [
+    "You'll be graded on",
+    "I'll be looking out for",
+    "Put special emphasis on"
+];
+
+var grading = [
+    "the size of your smile",
+    "the number of semicolons",
+    "my favorite tech stack",
+    "Levenshtein distance to reference solution",
+    "how you think or something"
+];
+
+/*********************************************
+ ************ Randomness functions ***********
+ *********************************************/
+
+function randomFromList(list) {
+    return list[Math.floor(Math.random() * list.length)];
+}
+
+function bernoulli(prob) {
+    return Math.random() < prob;
+}
+
+function coinFlip() {
+    return bernoulli(0.5);
+}
+
+
+/*********************************************
+ ************ UI + generator *****************
+ *********************************************/
+
+$("#line1").text(randomFromList(intros));
+$("#line2").text(randomFromList(computationVerbs));
+$("#line3").text(randomFromList(objects));
+
+if(bernoulli(0.4)) {
+    $("#line4").text("such that");
+    $("#line5").text(randomFromList(properties));
+
+    $("#line6").removeClass("hidden");
+    $("#line6").text(randomFromList(predicates));
+} else if (bernoulli(2.0/3)) {
+    $("#line4").text("using");
+    $("#line5").text(randomFromList(techniques));
+} else {
+    $("#line4").text("so that it can");
+    $("#line5").text(randomFromList(features));
+}
+
+if (bernoulli(0.1)) {
+    $("#addendum").removeClass("hidden");
+    $("#line7").text("And then for part two");
+    $("#line8").text(randomFromList(partTwos));
+} else if (bernoulli(0.1)) {
+    $("#addendum").removeClass("hidden");
+    $("#line7").text(randomFromList(gradingPrompts));
+    $("#line8").text(randomFromList(grading));
+}
+
+//]]>
+</script>
+</body>
+</html>
+
