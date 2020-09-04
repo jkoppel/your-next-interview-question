@@ -1,0 +1,1 @@
+Simple random text generator parodying software engineering interviews.
